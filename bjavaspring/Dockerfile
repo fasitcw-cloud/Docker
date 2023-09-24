@@ -31,7 +31,5 @@ RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn clean install
 RUN mvn clean package
-
 EXPOSE 8080
-
 CMD ["java", "-jar", "/app/target/my-java-app-1.0-SNAPSHOT.jar"]
