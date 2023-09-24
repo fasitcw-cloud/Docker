@@ -1,0 +1,8 @@
+{
+  "name": "My Development Container",
+  "image": "fasiahmed/devops:1",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  }
+}
+
