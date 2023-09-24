@@ -1,0 +1,8 @@
+# Use a minimal image with curl installed
+FROM alpine:latest
+
+# Install curl
+RUN apk --no-cache add curl
+
+# Entry point
+CMD ["curl", "container1:80"]
