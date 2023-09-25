@@ -5,4 +5,4 @@ FROM alpine:latest
 RUN apk --no-cache add curl
 
 # Entry point
-CMD ["curl", "container1:80"]
+CMD ["curl", "webserver:80"]
