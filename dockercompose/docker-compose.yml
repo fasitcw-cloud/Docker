@@ -17,3 +17,13 @@ services:
       MYSQL_PASSWORD: sample_password
     volumes:
       - ./db_data:/var/lib/mysql
+  mysql-client:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: client_db
+      MYSQL_USER: client_user
+      MYSQL_PASSWORD: client_password
+    # command: ["mysql", "-h", "database", "-u", "sample_user", "-p", "sample_password"]
+    depends_on:
+      - database
