@@ -4,5 +4,5 @@ FROM alpine:latest
 # Install curl
 RUN apk --no-cache add curl
 
-# Entry point
-CMD ["curl", "webserver:80"]
+# # Entry point
+# CMD ["curl", "webserver:80"]
