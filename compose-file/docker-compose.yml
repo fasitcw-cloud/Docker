@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    container_name: my_nginx
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nginx-config:/etc/nginx/conf.d
+      - my_volume:/app/data
+    environment:
+      - DEBUG=true
+      - ENVIRONMENT=production
+    networks:
+      my_network:
+        ipv4_address: 172.28.0.3
+    depends_on:
+      - db
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  db:
+    image: mysql:latest
+    container_name: my_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_DATABASE=sample_db
+    volumes:
+      - ./db-data:/var/lib/mysql
+    networks:
+      my_network:
+        ipv4_address: 172.28.0.4
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.28.0.0/16"
+
+volumes:
+  db-data:
+  my_volume:
