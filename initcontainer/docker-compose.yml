@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: ./web-app
+    ports:
+      - "8080:8080"
+    volumes:
+      - shared-data:/app/data
+  init:
+    build: ./init-container
+    volumes:
+      - shared-data:/app/data
+volumes:
+  shared-data:
