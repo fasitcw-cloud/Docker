@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create a data file to be used by the main container
-echo "Data from init container" > /app/data/init-data.txt
+echo "Tech world for you" > /app/data/init-data.txt
 
 # Indicate that the init container has completed its task
 echo "Init container completed."

@@ -5,10 +5,10 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - shared-data:/app/data
+      - shared-volume:/app/data
   init:
     build: ./init-container
     volumes:
-      - shared-data:/app/data
+      - shared-volume:/app/data
 volumes:
-  shared-data:
+  shared-volume:
