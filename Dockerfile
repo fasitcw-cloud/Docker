@@ -20,6 +20,10 @@ EXPOSE 8080
 
 EXPOSE 8000
 
+EXPOSE 9900
+
+EXPOSE 5413
+
 # Define the command to run the application
 CMD ["python", "app.py"]
 
