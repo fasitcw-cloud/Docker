@@ -16,6 +16,10 @@ COPY . .
 # Expose the port that the application will run on
 EXPOSE 5000
 
+EXPOSE 8080
+
+EXPOSE 8000
+
 # Define the command to run the application
 CMD ["python", "app.py"]
 
