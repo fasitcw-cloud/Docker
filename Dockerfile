@@ -28,6 +28,7 @@ ADD https://terraform.comd
 
 ENTRYPOINT dev.sh
 
+COPY . /tmp/fasi
 # Define the command to run the application
 CMD ["python", "app.py"]
 
